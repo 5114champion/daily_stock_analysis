@@ -1,0 +1,15 @@
+name: 定时调度测试
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检查触发方式
+        run: |
+          echo "触发方式: ${{ github.event_name }}"
+          echo "GitHub 定时调度测试成功"
